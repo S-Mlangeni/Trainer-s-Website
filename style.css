@@ -46,12 +46,15 @@ p {
 .navbar {
     background-color: rgba(0, 11, 48, 0.7);
     border-bottom: gray solid 0.5px;
-    padding: 0px 40px;
     display: flex;
     justify-content: space-between; /* Creates space between items without 
     space at the ends */
     align-items: center;
     
+}
+
+.navbar h1 {
+    margin-left: 40px;
 }
 
 .navitems {
@@ -284,7 +287,7 @@ p {
     .burgermenu {
         visibility: visible;
         position: relative;
-        right: -5px;
+        right: 35px;
     }
 }
 
