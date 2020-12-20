@@ -1,0 +1,311 @@
+/* Resetting default style settings */
+* { /* universal selector (i.e. selecting all elements) */
+    box-sizing: border-box; /*sizing with respect to the border */
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: "Algerian";
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    color: honeydew;
+}
+
+a {
+    text-decoration: none;
+    color: gainsboro;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    font-family: "Times New Roman";
+}
+
+/* Navigation bar and Home section */
+.navbar_homesection {
+    background-color: rgba(0,0, 0, 0.7);
+    background-image: url("images/trainer.jpg");
+    background-repeat: no-repeat; /* Eliminates image repetition */
+    background-size: cover; /* Sizes image to completely cover its 
+    element (100% can also be used, however may result in blank spaces) */
+    background-position: center; /*Centre's image */
+    background-blend-mode: multiply; /*blends background-image with 
+    -colour */
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: rgba(0, 11, 48, 0.7);
+    border-bottom: gray solid 0.5px;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between; /* Creates space between items without 
+    space at the ends */
+    align-items: center;
+    
+}
+
+.navitems {
+    display: flex;
+}
+
+.navitems .navlinks {
+    display: flex;
+}
+
+.navitems .navlinks a {
+    padding: 10px;
+    font-family: "Times New Roman";
+}
+
+.navitems .navlinks a:hover {
+    background-color:rgba(0,0, 0, 0.8);
+}
+
+.burgermenu {
+    border: gray solid 0.5px;
+    cursor: pointer; /*Gives pointer to a non-link element */
+    visibility: hidden;
+}
+
+.burgermenu:hover {
+    background-color: rgba(0,0, 0, 0.8);
+}
+
+.burgermenu .line1,.line2,.line3 {
+    background-color: gainsboro;
+    width: 20px;
+    height: 3px;
+    margin: 3px;
+}
+
+/* Home section */
+.homesection {
+    border-bottom: solid black 1px;
+    display: flex;
+    flex-direction: column; /* changes default direction */
+    align-items: center;
+    padding: 40px 40px;
+    color: gainsboro;
+    text-align: center;
+}
+.homesection h2,h3 {
+    margin: 10px 0px;
+}
+
+/* About and Program section */
+.aboutsection,.programsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    text-align: center;
+    background-color: rgba(0, 11, 48, 0.05);
+}
+
+.aboutsection,.programsection h2 {
+    margin-bottom: 10px;
+}
+
+/* Testimonial section */
+.testimonialsection {
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns of size 
+    one fraction of the page (half, in this case) each. "1fr 1fr" can also 
+    be used for the same effect */
+    grid-template-areas: "heading heading"; /* Allows a grid element/s to
+    span across the specified number of rows */
+    gap: 20px; /* Creates a gap between both the columns and rows */
+    
+}
+.testimonialheading {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 11, 48, 0.2); /* (shadow horizontal 
+    displacement, shadow vertical displacement, shadow blur/glow, shadow 
+    colour) */
+    grid-area: heading; /* Spans the grid element across the specified 
+    grid area */
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.clienttestimonial {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 11, 48, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    justify-self: center; /* Aligns the individual grid item horizontally */
+}
+
+.clienttestimonial h4 {
+    margin-bottom: 5px;
+}
+
+/* Contact section */
+.contactsection {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header";
+    gap: 20px;
+    background-color: rgba(0, 11, 48, 0.3);
+    align-items: center; /* Aligns grid items vertically, "stretch" value
+    is the default */
+    justify-items: center; /* Aligns grid items horizontally */
+}
+
+.contactsection h2 {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+}
+
+.contactsection form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    width: 400px;
+    height: fit-content;
+}
+
+.contactsection input,textarea {
+    margin: 5px;
+    width: 100%;
+    padding: 5px;
+    font-family: "Times New Roman";
+    border-radius: 5px;
+    border: 1px;
+}
+
+.contactsection ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contactsection li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+}
+
+.sendbtn:hover {
+    background-color: white;
+}
+
+.contactsection .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contactsection .icons i:hover {
+    background-color: white;
+    border-radius: 15px;
+}
+
+/* Footer section */
+.footersection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+    background-color: rgba(0, 11, 48, 0.7);
+    color: gainsboro;
+    font-size: 14px;
+}
+
+/* Tablet and Under */
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden; /* Prevents content from overflowing (i.e 
+        prevents scrolling) in the x-direction */ 
+    }
+    /* Contact section */
+    .contactsection {
+        background-color: rgba(0, 11, 48, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Navigation bar */
+    .navlinks {
+        flex-direction: column;
+        position: absolute;
+        left: 100%;
+        border-left: gray solid 0.5px;
+        top: 42px;
+        background-color: rgba(0, 11, 48, 0.7);
+        height: 100%;
+        align-items: center;
+        transform: translateX(0%); /* Transforms the element as specified
+        */
+        transition-property: transform; /* Identifies the css property to
+        be changed or transitioned when an event occurs. */
+        transition-duration: 6s; /* Specfies the time duration for the property
+        to transition/change from its intial to its final state. */
+        transition-timing-function: ease-in; /* Specifies a speed gradient
+        for property (i.e. "ease-in" starts slow and ends fast, the opposite
+        is true with "ease-out" */
+        transition: transform 0.5s ease-in 0s; /* (transition-property, -duration,
+        -timing-function, -delay) */
+    }
+    
+    .navlinks-active {
+        display: flex;
+        transform: translateX(-100%);
+
+    }
+
+    .navitems li {
+        margin: 20px 0px;
+    }
+
+    .burgermenu {
+        visibility: visible;
+        position: relative;
+        right: -5px;
+    }
+}
+
+
+
+/* Mobile and Under */
+@media (max-width: 450px) {
+    /* Contact section */
+    .contactsection form {
+        width: 280px;
+    }
+
+    /* Footer section */
+    .footersection {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Testimonial section */
+    .testimonialsection {
+        display: flex;
+        flex-direction: column;
+    }    
+}
