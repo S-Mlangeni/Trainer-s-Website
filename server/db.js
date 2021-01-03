@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 const dotenv = require("dotenv");
 dotenv.config();
+const request = require("request");
 
 //Creating a mysql connection:
 const connection = mysql.createConnection({
@@ -20,6 +21,11 @@ connection.connect((error) => { //Call-back function is used to monitor the conn
 })
 
 const mysqldb = (req, res) => {
+    /* The request function below is necessary to allow incoming requests from the specified
+    urls/domains, thus eliminating "cors" and "POST/GET" errors when hosting */
+    request(
+        { url: process.env.URL }, 
+    )
 
     // Inserting data using sql queries:
     const name = req.body.name;

@@ -33,8 +33,8 @@ function Site() {
 
     const SendData = async (event) => {
         event.preventDefault();
-    
-        const Data_rough = await fetch(process.env.REACT_APP_API_ENDPOINT, {
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const Data_rough = await fetch(/*proxyurl +*/ process.env.REACT_APP_API_ENDPOINT, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ /* Converts the JS data to a JSON string which is stored 
