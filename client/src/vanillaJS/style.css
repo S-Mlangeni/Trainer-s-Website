@@ -219,11 +219,13 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-size: 30px;
 }
 
 .contactsection .icons i:hover {
-    background-color: white;
-    border-radius: 15px;
+    color: white;
+    /* border-radius: 15px; */
+    
 }
 
 /* Footer section */
@@ -275,9 +277,13 @@ p {
     }
     
     .navlinks-active {
-        display: flex;
         transform: translateX(-100%);
 
+    }
+
+    .navlinks-active-links {
+        transition-duration: 0s;
+        transform: translateX(0%);
     }
 
     .navitems li {
