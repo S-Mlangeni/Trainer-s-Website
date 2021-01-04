@@ -16,7 +16,7 @@ in json format. Otherwise, requested data will result in an "undefined" result. 
 
 ex_app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // "*" allows all domains to access the server
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   }); /* Middleware that allows different domains to access the server, thus eliminating cors error */
 
