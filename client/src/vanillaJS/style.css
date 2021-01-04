@@ -260,7 +260,7 @@ p {
     .navlinks {
         flex-direction: column;
         position: absolute;
-        left: 100vw;
+        left: 100%;
         border-left: gray solid 0.5px;
         top: 70px;
         background-color: rgba(0, 11, 48, 0.7);
