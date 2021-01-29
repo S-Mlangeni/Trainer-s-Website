@@ -174,7 +174,7 @@ function Site() {
             {/* Footer section */}
             <footer className="footersection">
                 <h2>P. Trainer</h2>
-                <p>Copyright &copy; 2020</p>
+                <p>Copyright &copy; 2020-2021</p>
                 <p>Designed by S. Mlangeni</p>
             </footer>
         </div>
