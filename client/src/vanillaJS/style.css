@@ -272,10 +272,10 @@ p {
         be changed or transitioned when an event occurs. */
         transition-duration: 6s; /* Specfies the time duration for the property
         to transition/change from its intial to its final state. */
-        transition-timing-function: ease-in; /* Specifies a speed gradient
+        /*transition-timing-function: ease-in; *//* Specifies a speed gradient
         for property (i.e. "ease-in" starts slow and ends fast, the opposite
         is true with "ease-out" */
-        transition: transform 0.5s ease-in 0s; /* (transition-property, -duration,
+        transition: transform 0.5s 0s; /* (transition-property, -duration,
         -timing-function, -delay) */
     }
     
