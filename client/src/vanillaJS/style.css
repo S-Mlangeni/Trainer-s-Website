@@ -279,7 +279,7 @@ p {
         -timing-function, -delay) */
     }
     
-    .navlinks-active {
+    /*.navlinks-active {
         transform: translateX(-100%);
 
     }
@@ -287,7 +287,7 @@ p {
     .navlinks-active-links {
         transition-duration: 0s;
         transform: translateX(0%);
-    }
+    }*/
 
     .navitems li {
         margin: 20px 0px;

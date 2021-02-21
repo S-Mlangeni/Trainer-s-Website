@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./style.css";
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import {Navlinks} from "./styles";
 require("dotenv").config();
 
 function Site() {
@@ -9,17 +10,29 @@ function Site() {
     const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");
     const [Message, setMessage] = useState("");
+    const [Duration, setDuration] = useState("0.5s")
     
+    useEffect(() => {
+        const HandleScroll = () => {
+            setActive(false);
+            setDuration("0s")
+        }
+        window.addEventListener("scroll", HandleScroll)
+        return () => {
+            window.removeEventListener("scroll", HandleScroll)
+        }
+    }, [])
 
-    const burgerclicked = (event) => {
-        setActive(!Active); /* Allows the state value to be toggled */ 
+    /*const burgerclicked = (event) => {
+        setActive(!Active); /* Allows the state value to be toggled *//* 
+        const duration = "0.5s";
         setActive_link("active");
-    }
+    }*/
 
-    const linksclicked = (event) => {
+    /*const linksclicked = (event) => {
         setActive_link("active-links"); /* Allows the state value to be toggled */ 
-        
-    }
+     /*   
+    }*/
 
     const NameFunc = (event) => {
         setName(event.target.value);
@@ -68,16 +81,14 @@ function Site() {
                 <header className="navbar">
                     <h1>P. Trainer</h1>
                     <nav className="navitems" id="navitems">
-                        <ul className={Active ? `navlinks navlinks-${Active_link}` : "navlinks"} id="navlinks"> {/* If 
-                        "Active" is "true" then use first/left option, otherwise use second/right 
-                        option */}
-                            <li><a href="#home" onClick={linksclicked}>Home</a></li>
-                            <li><a href="#about" onClick={linksclicked}>About</a></li>
-                            <li><a href="#testimonials" onClick={linksclicked}>Testimonials</a></li>
-                            <li><a href="#programs" onClick={linksclicked}>Programs</a></li>
-                            <li><a href="#contact" onClick={linksclicked}>Contact</a></li>
-                        </ul>
-                        <div className="burgermenu" id="burger" onClick={burgerclicked}>
+                        <Navlinks time={Duration} slide={Active ? "translateX(-100%)" : "translateX(0%)"} className="navlinks" id="navlinks">
+                            <li><a href="#home" onClick={() => {setActive(false); setDuration("0s")}}>Home</a></li>
+                            <li><a href="#about" onClick={() => {setActive(false); setDuration("0s")}}>About</a></li>
+                            <li><a href="#testimonials" onClick={() => {setActive(false); setDuration("0s")}}>Testimonials</a></li>
+                            <li><a href="#programs" onClick={() => {setActive(false); setDuration("0s")}}>Programs</a></li>
+                            <li><a href="#contact" onClick={() => {setActive(false); setDuration("0s")}}>Contact</a></li>
+                        </Navlinks>
+                        <div className="burgermenu" id="burger" onClick={() => {setActive(!Active); setDuration("0.5s")}}>
                             <div className="line1"></div>
                             <div className="line2"></div>
                             <div className="line3"></div>
