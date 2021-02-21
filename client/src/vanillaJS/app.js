@@ -13,15 +13,20 @@ function Site() {
     const [Duration, setDuration] = useState("0.5s")
     
     useEffect(() => {
-        const HandleScroll = () => {
+        const ScrollAndClick = () => {
             setActive(false);
             setDuration("0s")
         }
-        window.addEventListener("scroll", HandleScroll)
-        return () => {
-            window.removeEventListener("scroll", HandleScroll)
+        window.addEventListener("scroll", ScrollAndClick);
+        
+        if (Active) {
+            window.addEventListener("click", ScrollAndClick);
         }
-    }, [])
+        return () => {
+            window.removeEventListener("scroll", ScrollAndClick);
+            window.removeEventListener("click", ScrollAndClick)
+        }
+    })
 
     /*const burgerclicked = (event) => {
         setActive(!Active); /* Allows the state value to be toggled *//* 
