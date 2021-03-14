@@ -6,9 +6,9 @@ export const Navlinks = styled.ul`
         position: absolute;
         left: 100%;
         border-left: gray solid 0.5px;
+        border-radius: 5px;
         top: 70px;
         background-color: rgba(0, 11, 48, 0.7);
-        height: 100%;
         align-items: center;
         /*transform: translateX(0%); *//* Transforms the element as specified
         */

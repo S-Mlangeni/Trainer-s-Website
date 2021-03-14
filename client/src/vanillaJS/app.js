@@ -2,15 +2,17 @@ import React, {useState, useEffect} from 'react';
 import "./style.css";
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import {Navlinks} from "./styles";
+import {PulseLoader} from "react-spinners";
+
 require("dotenv").config();
 
 function Site() {
     const [Active, setActive] = useState(false);
-    const [Active_link, setActive_link] = useState("active");
     const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");
     const [Message, setMessage] = useState("");
-    const [Duration, setDuration] = useState("0.5s")
+    const [Duration, setDuration] = useState("0.5s");
+    const [Loading, setLoading] = useState(false);
     
     useEffect(() => {
         const ScrollAndClick = () => {
@@ -28,17 +30,6 @@ function Site() {
         }
     })
 
-    /*const burgerclicked = (event) => {
-        setActive(!Active); /* Allows the state value to be toggled *//* 
-        const duration = "0.5s";
-        setActive_link("active");
-    }*/
-
-    /*const linksclicked = (event) => {
-        setActive_link("active-links"); /* Allows the state value to be toggled */ 
-     /*   
-    }*/
-
     const NameFunc = (event) => {
         setName(event.target.value);
     }
@@ -51,8 +42,8 @@ function Site() {
 
     const SendData = async (event) => {
         event.preventDefault();
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const Data_rough = await fetch(/*proxyurl +*/ process.env.REACT_APP_API_ENDPOINT, {
+        setLoading(true);
+        const Data_rough = await fetch(process.env.REACT_APP_API_ENDPOINT, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ /* Converts the JS data to a JSON string which is stored 
@@ -64,24 +55,27 @@ function Site() {
             })
         })
         const Data_jsonformat = await Data_rough.json();
+        setLoading(false);
+        const Popup = () => {
+            if (Data_jsonformat.outcome) {
+                alert("Your message has been sent. Thank you.");
+            } else {
+                alert("An error has occurred. Please try again.");
+            }
+        }
+        setTimeout(Popup, 500);
         console.log(Data_jsonformat.status);
-        
+    
         setName("");
         setEmail("");
-        setMessage("");
-
-        if (Data_jsonformat.outcome) {
-            alert("Your message has been sent. Thank you.");
-        } else {
-            alert("An error has occurred. Please try again.");
-        }
-        
+        setMessage("");        
     }
 
     return (
         <div>
             <div className="navbar_homesection">
                 {/* Navigation bar */} 
+                {/* eslint-disable-next-line */}
                 <a name="home"></a>
                 <header className="navbar">
                     <h1>P. Trainer</h1>
@@ -108,6 +102,7 @@ function Site() {
                 </section>
             </div>
             {/* About section */}
+            {/* eslint-disable-next-line */}
             <a name="about"></a>
             <section className="aboutsection">
                 <h2>About Us</h2>
@@ -120,6 +115,7 @@ function Site() {
                 </p>
             </section>
             {/* Testimonial section */}
+            {/* eslint-disable-next-line */}
             <a name="testimonials"></a>
             <section className="testimonialsection">
                 <div className="testimonialheading">
@@ -143,6 +139,7 @@ function Site() {
                 </div>
             </section>
             {/* Program section */}
+            {/* eslint-disable-next-line */}
             <a name="programs"></a>
             <section className="programsection">
                 <h2>Our Programs</h2>
@@ -155,6 +152,7 @@ function Site() {
                 </p>
             </section>
             {/* Contact section */}
+            {/* eslint-disable-next-line */}
             <a name="contact"></a>
             <section className="contactsection">
                 <h2>Contact Us</h2>
@@ -162,7 +160,7 @@ function Site() {
                     <input type="text" placeholder="Name" value={Name} onChange={NameFunc}/>
                     <input type="email" placeholder="Email" value={Email} onChange={EmailFunc}/>
                     <textarea cols="30" rows="3" placeholder="Message" value={Message} onChange={MessageFunc}></textarea>
-                    <input type="submit" value="Send" className="sendbtn" onClick={SendData}/>
+                    <button className="sendbtn" onClick={SendData}>{Loading ? <PulseLoader size="5px" color="black" loading/> : "Send"}</button>
                 </form>
                 <ul>
                     <li>
@@ -181,8 +179,11 @@ function Site() {
                         <p>(000) 555-0000</p>
                     </li>
                     <li className="icons">
+                        {/* eslint-disable-next-line */}
                         <a href="#"><i><FaFacebookF/></i></a>
+                        {/* eslint-disable-next-line */}
                         <a href="#"><i><FaTwitter/></i></a>
+                        {/* eslint-disable-next-line */}
                         <a href="#"><i><FaInstagram/></i></a>
                     </li>
                 </ul>
@@ -198,16 +199,3 @@ function Site() {
 }
  
 export default Site;
-
-/* const navlinks = document.getElementById("navlinks");
-const burger = document.getElementById("burger");
-
-burger.addEventListener("click", slidemenu);
-
-function slidemenu () {
-    navlinks.classNameList.toggle("navlinks-active"); *//* "toggle" adds and removes
-    the specified className to an element when the event occurs, unlike "add" and
-    "remove" which only add and remove respectively. *//*
-}
-
-*/

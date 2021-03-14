@@ -190,7 +190,7 @@ p {
     height: fit-content;
 }
 
-.contactsection input,textarea {
+.contactsection input,textarea,button {
     margin: 5px;
     width: 100%;
     padding: 5px;
@@ -264,7 +264,6 @@ p {
         border-left: gray solid 0.5px;
         top: 70px;
         background-color: rgba(0, 11, 48, 0.7);
-        height: 100%;
         align-items: center;
         transform: translateX(0%); /* Transforms the element as specified
         */
@@ -279,16 +278,6 @@ p {
         -timing-function, -delay) */
     }
     
-    /*.navlinks-active {
-        transform: translateX(-100%);
-
-    }
-
-    .navlinks-active-links {
-        transition-duration: 0s;
-        transform: translateX(0%);
-    }*/
-
     .navitems li {
         margin: 20px 0px;
     }
