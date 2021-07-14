@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DB,
-})
+});
 
 
 function handleDisconnect() {
@@ -44,21 +44,9 @@ function handleDisconnect() {
         throw err;                                  // server variable configures this).
       }
     });
-  }
+};
   
-  handleDisconnect();
-
-
-
-//Connecting with mysql db:
-//connection.connect((error) => { //Call-back function is used to monitor the connection to the db.
-   /* if(error) {
-        console.log ("An error has occurred connecting to DB.")
-        console.error(error);
-    } else {
-        console.log ("DB connection is successful.")
-    }
-})*/
+handleDisconnect();
 
 const mysqldb = (req, res) => {
     /* The request function below is necessary to allow incoming requests from the specified
@@ -70,7 +58,7 @@ const mysqldb = (req, res) => {
               return res.status(500).json({ type: 'error', message: err.message });
             }
         }
-    )
+    );
 
     // Inserting data using sql queries:
     const name = req.body.name;
@@ -85,7 +73,6 @@ const mysqldb = (req, res) => {
                 status: "Data entry is Unsuccessful!",
                 outcome: false
             })
-
         } else {
             console.log("Data row is successfully added.")
             res.send({
@@ -93,10 +80,9 @@ const mysqldb = (req, res) => {
                 outcome: true
             })
         }
-    })
-
-}
+    });
+};
 
 module.exports = {
     mysqldb
-}
+};

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const dbController = require("./db") // "database" file in current/same directory/folder
+//const dbController = require("./db") // "database" file in current/same directory/folder
+const dbController = require("./mongodb") // "database" file in current/same directory/folder
 
 const ex_app = express();
 
@@ -20,7 +21,7 @@ ex_app.use((req, res, next) => {
     next();
   }); /* Middleware that allows different domains to access the server, thus eliminating cors error */
 
-ex_app.post("/", dbController.mysqldb);
+ex_app.post("/", dbController.ourMongoDB);
 
 ex_app.get("/", (req, res) => {
     res.send("<h1>Hello</h1>")
